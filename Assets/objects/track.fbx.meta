@@ -3,7 +3,22 @@ guid: 835791ee690fc334ab76ad3638df0e54
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nail
+    second: {fileID: 2100000, guid: cd7847f7992d64b449c3b67390c4e1e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: track iron
+    second: {fileID: 2100000, guid: 990c5b403a7ff7f429cc171ab82dde94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 0a720b3c2422a174ba2d4c2c0a3a38c5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
