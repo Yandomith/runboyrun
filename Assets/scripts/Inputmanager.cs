@@ -11,24 +11,21 @@ public class Inputmanager : MonoBehaviour
 
     public delegate void EndTouch(Vector2 position, float time);
     public event StartTouch OnEndTouch;
- 
+
     #endregion
     private PlayerControl playerControl;
     private Camera mainCamera;
     private void Awake(){
         playerControl =new PlayerControl();
         mainCamera=Camera.main;
-
     }
 
     private void OnEnable(){
         playerControl.Enable();
-
     }
     
     private void ONDisable(){
         playerControl.Disable();
-
     }
 
 
@@ -39,19 +36,19 @@ public class Inputmanager : MonoBehaviour
 
     }
 
-    private void StartTouchPrimary(InputAction.CallBackContext context){
-        if(OnStartTouch != null ) OnStartTouch(Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+    private void StartTouchPrimary(InputAction.CallbackContext context){
+        if(OnStartTouch != null ) OnStartTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
 
 
     }
-     private void EndTouchPrimary(InputAction.CallBackContext context){
-        if(OnEndTouch != null ) OnEndTouch(Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
+     private void EndTouchPrimary(InputAction.CallbackContext context){
+        if(OnEndTouch != null ) OnEndTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
 
 
     }
     
 
-    public Vector2 PrimaryPositiiobn(){
-        return Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>());
+    public Vector2 PrimaryPosition(){
+        return Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>());
     }
 }
