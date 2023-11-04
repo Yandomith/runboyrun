@@ -40,18 +40,18 @@ public class Inputmanager : MonoBehaviour
     }
 
     private void StartTouchPrimary(InputAction.CallBackContext context){
-        if(OnStartTouch != null ) OnStartTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+        if(OnStartTouch != null ) OnStartTouch(Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
 
 
     }
      private void EndTouchPrimary(InputAction.CallBackContext context){
-        if(OnEndTouch != null ) OnEndTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
+        if(OnEndTouch != null ) OnEndTouch(Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
 
 
     }
     
 
     public Vector2 PrimaryPositiiobn(){
-        return Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>());
+        return Util.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>());
     }
 }
