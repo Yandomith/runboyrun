@@ -13,11 +13,11 @@ public class Inputmanager : MonoBehaviour
     public event StartTouch OnEndTouch;
  
     #endregion
-
-
     private PlayerControl playerControl;
+    private Camera mainCamera;
     private void Awake(){
         playerControl =new PlayerControl();
+        mainCamera=Camera.main;
 
     }
 
@@ -52,6 +52,6 @@ public class Inputmanager : MonoBehaviour
     
 
     public Vector2 PrimaryPositiiobn(){
-        return Utils.ScreenToWorld(mainCamera, playerControl.Touch)
+        return Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition)
     }
 }
