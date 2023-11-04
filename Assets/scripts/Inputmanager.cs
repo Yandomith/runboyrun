@@ -40,8 +40,8 @@ public class Inputmanager : MonoBehaviour
     }
 
     private void StartTouchPrimary(InputAction.CallBackContext context){
-        if(OnStartTouch != null ) OnStartTouch();
-        
+        if(OnStartTouch != null ) OnStartTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+
 
     }
     
