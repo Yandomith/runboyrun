@@ -52,6 +52,6 @@ public class Inputmanager : MonoBehaviour
     
 
     public Vector2 PrimaryPositiiobn(){
-        return Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition)
+        return Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>());
     }
 }
