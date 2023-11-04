@@ -44,5 +44,10 @@ public class Inputmanager : MonoBehaviour
 
 
     }
+     private void EndTouchPrimary(InputAction.CallBackContext context){
+        if(OnEndTouch != null ) OnEndTouch(Utils.ScreenToWorld(mainCamera, playerControl.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+
+
+    }
     
 }
