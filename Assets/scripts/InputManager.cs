@@ -8,10 +8,12 @@ public class InputManager : MonoBehaviour
     private event StartTouch OnStartTouch;
     private delegate void EndTouch(Vector2 position, float time);
     private event EndTouch OnEndTouch;
+    
     public delegate void Tapped();
     public event Tapped OnTapped;
     public delegate void MultiTapped();
     public event MultiTapped OnMultiTapped;
+
     public delegate void LeftSwipe();
     public event LeftSwipe OnSwipeLeft;
     public delegate void RightSwipe();
@@ -55,7 +57,7 @@ public class InputManager : MonoBehaviour
         playerControls.Touch.PrimaryContact.canceled -= EndTouchPrimary;
         playerControls.Touch.Tap.performed -= TappedPerformed;
         playerControls.Touch.MultiTap.performed -= MultiTappedPerformed;
-    }
+    } 
 
     private void Start ()
     {

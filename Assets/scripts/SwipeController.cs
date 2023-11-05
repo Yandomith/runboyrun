@@ -6,7 +6,6 @@ public class SwipeController : MonoBehaviour
     public float moveSpeed = 5.0f;
     private Vector2 touchStartPos;
     private bool isSwiping = false;
-
     private PlayerControls playerControls;
 
     private void Awake()
@@ -17,15 +16,15 @@ public class SwipeController : MonoBehaviour
     private void OnEnable()
     {
         playerControls.Enable();
-        playerControls.Touch.PrimaryContact.started += ctx => OnStartTouch(ctx);
-        playerControls.Touch.PrimaryContact.canceled += ctx => OnEndTouch(ctx);
+        playerControls.Touch.PrimaryContact.started += OnStartTouch;
+        playerControls.Touch.PrimaryContact.canceled += OnEndTouch;
     }
 
     private void OnDisable()
     {
         playerControls.Disable();
-        playerControls.Touch.PrimaryContact.started -= ctx => OnStartTouch(ctx);
-        playerControls.Touch.PrimaryContact.canceled -= ctx => OnEndTouch(ctx);
+        playerControls.Touch.PrimaryContact.started -= OnStartTouch;
+        playerControls.Touch.PrimaryContact.canceled -= OnEndTouch;
     }
 
     private void OnStartTouch(InputAction.CallbackContext ctx)
@@ -43,9 +42,8 @@ public class SwipeController : MonoBehaviour
     {
         if (isSwiping)
         {
-            // Use the touchStartPos as the starting point.
-            Vector2 currentTouchPos = touchStartPos;
-            Vector2 swipeDelta = playerControls.Touch.PrimaryPosition.ReadValue<Vector2>() - touchStartPos;
+            Vector2 currentTouchPos = playerControls.Touch.PrimaryPosition.ReadValue<Vector2>();
+            Vector2 swipeDelta = currentTouchPos - touchStartPos;
 
             if (Mathf.Abs(swipeDelta.x) > 0.1f)
             {

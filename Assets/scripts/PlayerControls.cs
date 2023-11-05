@@ -33,7 +33,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""04a3508d-2993-45d5-b11f-b2ced10961f3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -68,7 +68,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""20e5132a-f93a-46c1-afca-011c55776ecc"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""path"": ""<Touchscreen>/touch1/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -79,7 +79,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7383b0bc-0f1f-4d1d-9d31-d68c80e42677"",
-                    ""path"": ""<Touchscreen>/primaryTouch/delta"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
