@@ -26,17 +26,19 @@ public class SwipeMove : MonoBehaviour
         if (Input.touchCount> 0 && touch.phase == TouchPhase.Ended && coroutineAllowed)
         {
             endTouchPosition= touch.position;
-            if ((endTouchPosition.y > startTouchPosition.y) && (Mathf.Abs(touch.deltaPosition.y)> Mathf.Abs(touch.deltaPosition.x)))
-            {
-                goCoroutine= Go(new Vector3(0f ,0f,0.25f));
-                StartCoroutine(goCoroutine);
-            }
-            else if ((endTouchPosition.y < startTouchPosition.y) && (Mathf.Abs(touch.deltaPosition.y)> Mathf.Abs(touch.deltaPosition.x)))
-            {
-                goCoroutine= Go(new Vector3(0f ,0f,-0.25f));
-                StartCoroutine(goCoroutine);
-            }
-            else if ((endTouchPosition.x < startTouchPosition.x) && (Mathf.Abs(touch.deltaPosition.x)> Mathf.Abs(touch.deltaPosition.y)))
+            // if ((endTouchPosition.y > startTouchPosition.y) && (Mathf.Abs(touch.deltaPosition.y)> Mathf.Abs(touch.deltaPosition.x)))
+            // {
+            //     goCoroutine= Go(new Vector3(0f ,0f,0.25f));
+            //     StartCoroutine(goCoroutine);
+            // }
+            // else if ((endTouchPosition.y < startTouchPosition.y) && (Mathf.Abs(touch.deltaPosition.y)> Mathf.Abs(touch.deltaPosition.x)))
+            // {
+            //     goCoroutine= Go(new Vector3(0f ,0f,-0.25f));
+            //     StartCoroutine(goCoroutine);
+            // }
+            // else 
+            
+            if ((endTouchPosition.x < startTouchPosition.x) && (Mathf.Abs(touch.deltaPosition.x)> Mathf.Abs(touch.deltaPosition.y)))
             {
                 goCoroutine= Go(new Vector3(-0.25f ,0f,0f));
                 StartCoroutine(goCoroutine);
