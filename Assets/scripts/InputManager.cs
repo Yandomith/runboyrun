@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     #region Events
     private delegate void StartTouch(Vector2 position ,float time);
     private event StartTouch OnStartTouch;
-    private delegate void EndTouch(vector2 position, float time);
+    private delegate void EndTouch(Vector2 position, float time);
     private event EndTouch OnEndTouch;
     public delegate void Tapped();
     public event Tapped OnTapped;
@@ -26,13 +27,13 @@ public class InputManager : MonoBehaviour
 
    [SerializeField] private float minimumDistance = 15f;
    [SerializeField] private float maximumTime = 1f;
-    [SerializeFeild, Range(0f, 1f)]private float directionThreshold = 0.9f;
+    [SerializeField, Range(0f, 1f)]private float directionThreshold = 0.9f;
     private Vector2  startPosition , endPosition;
     private float startTime, endTime;
 
     private PlayerControls playerControls;
 
-    private voud Awake() =>  playerControls= new PlayerControls();
+    private void Awake() =>  playerControls= new PlayerControls();
 
     private void OnEnable(){
         playerControls.Enable();
@@ -74,7 +75,47 @@ public class InputManager : MonoBehaviour
     {
         endPosition= position;
         endTime= time;
+
+        DetectSwipe();
+
+    }
+
+    private void DetectSwipe()
+    {
+        if (Vector3.Distance(startPosition, endPosition) >= maximumDistance && (endTime- startTime)< maximumTime)
+        {
+            Vector3 direction= endPosition -startPosition;
+            vector2 direction2D= new  Vector2(direction.x, direction.y).normalized;
+
+            SwipeDirection(direction2d);
+        }
     }
 
 
+    private void SwipeDirection(Vector2 direction)
+    {
+    
+        if (Vector2.Dot(Vector2.up, direction)> directionThreshold)
+        {
+            if (OnSwipeUp != null) OnSwipeUp();
+            
+        }
+
+        else if (Vector2.Dot(Vector2.down, direction)> directionThreshold)
+        {
+            if (OnSwipeDown != null) OnSwipeDown();
+            
+        }
+        else if (Vector2.Dot(Vector2.left, direction)> directionThreshold)
+        {
+            if (OnSwipeLeft != null) OnSwipeLeft();
+            
+        }
+        else if (Vector2.Dot(Vector2.right, direction)> directionThreshold)
+        {
+            if (OnSwipeRight != null) OnSwipeRight();
+            
+        }
+        
+    }
 }
