@@ -26,5 +26,27 @@ public class InputManager : MonoBehaviour
 
    [SerializeField] private float minimumDistance = 15f;
    [SerializeField] private float maximumTime = 1f;
-    private float direction
+    [SerializeFeild, Range(0f, 1f)]private float directionThreshold = 0.9f;
+    private Vector2  startPosition , endPosition;
+    private float startTime, endTime;
+
+    private PlayerControls playerControls;
+
+    private voud Awake() =>  playerControls= new PlayerControls();
+
+    private void OnEnable(){
+        playerControls.Enable();
+        OnStartTouch += SwipeStart;
+        OnEndTouch += SwipeEnd;
+    }
+
+     private void OnDisable(){
+        playerControls.Disable();
+        OnStartTouch -= SwipeStart;
+        OnEndTouch -= SwipeEnd;
+    }
+
+
+
+    
 }
