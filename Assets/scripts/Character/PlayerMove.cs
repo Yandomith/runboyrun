@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.RightArrow))
         {
-            if (this.gameObject.transform.position.x >LevelBoundary.rightSide)
+            if (this.gameObject.transform.position.x <LevelBoundary.rightSide)
             {
                 transform.Translate(Vector3.left * Time.deltaTime*LeftRightSpeed *-1);
             }
