@@ -35,19 +35,29 @@ public class InputManager : MonoBehaviour
 
     private void Awake() =>  playerControls= new PlayerControls();
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         playerControls.Enable();
-        OnStartTouch += SwipeStart;
-        OnEndTouch += SwipeEnd;
+
+        // Subscribe to the generated PlayerControls actions.
+        playerControls.Touch.PrimaryContact.started += StartTouchPrimary;
+        playerControls.Touch.PrimaryContact.canceled += EndTouchPrimary;
+        playerControls.Touch.Tap.performed += TappedPerformed;
+        playerControls.Touch.MultiTap.performed += MultiTappedPerformed;
     }
 
-     private void OnDisable(){
+    private void OnDisable()
+    {
         playerControls.Disable();
-        OnStartTouch -= SwipeStart;
-        OnEndTouch -= SwipeEnd;
+
+        // Unsubscribe from the generated PlayerControls actions.
+        playerControls.Touch.PrimaryContact.started -= StartTouchPrimary;
+        playerControls.Touch.PrimaryContact.canceled -= EndTouchPrimary;
+        playerControls.Touch.Tap.performed -= TappedPerformed;
+        playerControls.Touch.MultiTap.performed -= MultiTappedPerformed;
     }
 
-    private void start ()
+    private void Start ()
     {
         playerControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
         playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
@@ -58,7 +68,7 @@ public class InputManager : MonoBehaviour
     private void TappedPerformed(InputAction.CallbackContext ctx) {if (OnTapped != null) OnTapped(); } 
     private void MultiTappedPerformed(InputAction.CallbackContext ctx) {if (OnMultiTapped != null) OnMultiTapped(); } 
     private void StartTouchPrimary(InputAction.CallbackContext ctx) { if (OnStartTouch != null) OnStartTouch( ScreenPosition(), (float)ctx.startTime); } 
-    private void EndTouchPrimary(InputAction.CallbackContext ctx) { if (OnEndTouch != null) OnEndTouch( ScreenPosition(), (float)ctx.Time); } 
+    private void EndTouchPrimary(InputAction.CallbackContext ctx) { if (OnEndTouch != null) OnEndTouch( ScreenPosition(), (float)ctx.time); } 
     private Vector2 ScreenPosition() { return playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(); }
 
 
@@ -82,12 +92,11 @@ public class InputManager : MonoBehaviour
 
     private void DetectSwipe()
     {
-        if (Vector3.Distance(startPosition, endPosition) >= maximumDistance && (endTime- startTime)< maximumTime)
+        if (Vector3.Distance(startPosition, endPosition) >= minimumDistance && (endTime- startTime)< maximumTime)
         {
             Vector3 direction= endPosition -startPosition;
-            vector2 direction2D= new  Vector2(direction.x, direction.y).normalized;
-
-            SwipeDirection(direction2d);
+            Vector2 direction2D= new  Vector2(direction.x, direction.y).normalized;
+            SwipeDirection(direction2D);
         }
     }
 
