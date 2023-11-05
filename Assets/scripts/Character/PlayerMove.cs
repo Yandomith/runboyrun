@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
                 transform.Translate(Vector3.left * Time.deltaTime*LeftRightSpeed *-1);
             }
         }
+        
 
     }
 }
