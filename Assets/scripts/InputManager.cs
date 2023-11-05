@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     private event StartTouch OnStartTouch;
     private delegate void EndTouch(Vector2 position, float time);
     private event EndTouch OnEndTouch;
-    
+
     public delegate void Tapped();
     public event Tapped OnTapped;
     public delegate void MultiTapped();
@@ -40,23 +40,28 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         playerControls.Enable();
+        OnStartTouch +=SwipeStart;
+        OnEndTouch += SwipeEnd;
 
-        // Subscribe to the generated PlayerControls actions.
-        playerControls.Touch.PrimaryContact.started += StartTouchPrimary;
-        playerControls.Touch.PrimaryContact.canceled += EndTouchPrimary;
-        playerControls.Touch.Tap.performed += TappedPerformed;
-        playerControls.Touch.MultiTap.performed += MultiTappedPerformed;
+
+        // // Subscribe to the generated PlayerControls actions.
+        // playerControls.Touch.PrimaryContact.started += StartTouchPrimary;
+        // playerControls.Touch.PrimaryContact.canceled += EndTouchPrimary;
+        // playerControls.Touch.Tap.performed += TappedPerformed;
+        // playerControls.Touch.MultiTap.performed += MultiTappedPerformed;
     }
 
     private void OnDisable()
     {
         playerControls.Disable();
-
-        // Unsubscribe from the generated PlayerControls actions.
-        playerControls.Touch.PrimaryContact.started -= StartTouchPrimary;
-        playerControls.Touch.PrimaryContact.canceled -= EndTouchPrimary;
-        playerControls.Touch.Tap.performed -= TappedPerformed;
-        playerControls.Touch.MultiTap.performed -= MultiTappedPerformed;
+         OnStartTouch -=SwipeStart;
+        OnEndTouch -= SwipeEnd;
+        
+        // // Unsubscribe from the generated PlayerControls actions.
+        // playerControls.Touch.PrimaryContact.started -= StartTouchPrimary;
+        // playerControls.Touch.PrimaryContact.canceled -= EndTouchPrimary;
+        // playerControls.Touch.Tap.performed -= TappedPerformed;
+        // playerControls.Touch.MultiTap.performed -= MultiTappedPerformed;
     } 
 
     private void Start ()
