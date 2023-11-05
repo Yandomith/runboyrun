@@ -46,7 +46,32 @@ public class InputManager : MonoBehaviour
         OnEndTouch -= SwipeEnd;
     }
 
+    private void start ()
+    {
+        playerControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
+        playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
+        playerControls.Touch.Tap.performed += ctx => TappedPerformed(ctx);
+        playerControls.Touch.MultiTap.performed += ctx => MultiTappedPerformed(ctx);
+    }
+
+    private void TappedPerformed(InputAction.CallbackContext ctx) {if (OnTapped != null) OnTapped(); } 
+    private void MultiTappedPerformed(InputAction.CallbackContext ctx) {if (OnMultiTapped != null) OnMultiTapped(); } 
+    private void StartTouchPrimary(InputAction.CallbackContext ctx) { if (OnStartTouch != null) OnStartTouch( ScreenPosition(), (float)ctx.startTime); } 
+    private void EndTouchPrimary(InputAction.CallbackContext ctx) { if (OnEndTouch != null) OnEndTouch( ScreenPosition(), (float)ctx.Time); } 
+    private Vector2 ScreenPosition() { return playerControls.Touch.PrimaryPosition.ReadValue<Vector2>(); }
 
 
-    
+
+
+    private void SwipeStart(Vector2 position, float time)
+    {
+
+    }   
+
+    private void SwipeEnd (Vector2 position, float time)
+    {
+
+    }
+
+
 }
