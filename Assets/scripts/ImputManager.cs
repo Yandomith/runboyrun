@@ -65,12 +65,15 @@ public class InputManager : MonoBehaviour
 
     private void SwipeStart(Vector2 position, float time)
     {
+        startPosition = position;
+        startTime = time;
 
     }   
 
     private void SwipeEnd (Vector2 position, float time)
     {
-
+        endPosition= position;
+        endTime= time;
     }
 
 
