@@ -13,6 +13,8 @@ public class GenerateLevel : MonoBehaviour
     {
         if (creatingSection == false)
         {
+            creatingSection = true;
+            StartCoroutine(GenerateSection());
             
         }
         
