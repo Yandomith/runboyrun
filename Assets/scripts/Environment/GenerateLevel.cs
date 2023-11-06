@@ -5,11 +5,11 @@ using UnityEngine;
 public class GenerateLevel : MonoBehaviour
 {
 
-    public GameObject[] scene;
+    public GameObject[] Section;
     public int zPos = 20;
     public bool creatingSection= false;
     public int secNum;
-    public float GenerateTime = 1f;
+    public float GenerateTime = 2.46f;
 
 
     void Update()
@@ -25,9 +25,9 @@ public class GenerateLevel : MonoBehaviour
     IEnumerator GenerateSection()
     {
         secNum = Random.Range(0,3);
-        Instantiate(scene[secNum],new Vector3(0,0,zPos), Quaternion.identity);
-        yield return new WaitForSeconds(GenerateTime);
+        Instantiate(Section[secNum],new Vector3(0,0,zPos), Quaternion.identity);
         
+        yield return new WaitForSeconds(GenerateTime);
         creatingSection =false;
 
 
