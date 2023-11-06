@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public GameObject[] section;
+    public int zPos = 20;
+    public bool creatingSection= false;
+
     void Update()
     {
+        if (creatingSection == false)
+        {
+            
+        }
         
     }
 }
