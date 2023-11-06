@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-   
-    public float moveSpeed = 8f;
+
     public float LeftRightSpeed= 10;
     
 
     void Update()
-    {
-       
-        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
-       
-       
+    {  
 
         if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow))
         {
