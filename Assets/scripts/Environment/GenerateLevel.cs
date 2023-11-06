@@ -9,7 +9,7 @@ public class GenerateLevel : MonoBehaviour
     public int zPos = 20;
     public bool creatingSection= false;
     public int secNum;
-    public float GenerateTime = 2.46f;
+    public float GenerateTime = 2.45f;
 
 
     void Update()
