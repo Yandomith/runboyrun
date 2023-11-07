@@ -2150,7 +2150,6 @@ GameObject:
   - component: {fileID: 951103690}
   - component: {fileID: 951103694}
   - component: {fileID: 951103695}
-  - component: {fileID: 951103696}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2271,28 +2270,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  swipeAngleThreshold: 30
+  swipeAngleThreshold: 10
   minSwipeAngleRight: 330
-  maxSwipeAngleRight: 30
+  maxSwipeAngleRight: 360
   minSwipeAngleLeft: 150
   maxSwipeAngleLeft: 210
   minSwipeAngleJump: 70
   maxSwipeAngleJump: 110
   minSwipeAngleDuck: 250
   maxSwipeAngleDuck: 290
---- !u!114 &951103696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951103688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17257f943e03fd8488ef0fdaaebab116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 2
 --- !u!1 &956538561
 GameObject:
   m_ObjectHideFlags: 0

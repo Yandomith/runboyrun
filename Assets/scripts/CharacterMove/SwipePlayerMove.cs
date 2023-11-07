@@ -12,10 +12,10 @@ public class SwipePlayerActions : MonoBehaviour
     private float boundaryRight = 9.5f; // Maximum allowed position
     private bool hasMoved = false; // Flag to track if the player has moved in the current swipe
 
-    public float swipeAngleThreshold = 30.0f; // Swipe angle threshold in degrees
+    public float swipeAngleThreshold = 10.0f; // Swipe angle threshold in degrees
 
     public float minSwipeAngleRight = 330.0f; // Minimum accepted swipe angle for right swipe
-    public float maxSwipeAngleRight = 30.0f; // Maximum accepted swipe angle for right swipe
+    public float maxSwipeAngleRight = 360.0f; // Maximum accepted swipe angle for right swipe
     public float minSwipeAngleLeft = 150.0f; // Minimum accepted swipe angle for left swipe
     public float maxSwipeAngleLeft = 210.0f; // Maximum accepted swipe angle for left swipe
     public float minSwipeAngleJump = 70.0f; // Minimum accepted swipe angle for jumping
