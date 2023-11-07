@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class JumpAndDuckScript : MonoBehaviour
 {
-    public float jumpSpeed = 5.0f; // Adjust this value to control the jump speed
-    public float returnSpeed = 10.0f; // Adjust this value to control the return speed
-    public float jumpHeight = 2.0f; // Height to jump
+    public float jumpSpeed = 10.0f; // Adjust this value to control the jump speed
+    public float returnSpeed = 15.0f; // Adjust this value to control the return speed
+    public float jumpHeight = 3.0f; // Height to jump
     public float duckHeight = 1.0f; // Height to duck
 
     private Vector3 initialPosition; // Store the initial position before jumping
@@ -25,7 +25,32 @@ public class JumpAndDuckScript : MonoBehaviour
 
     void Update()
     {
-        // Your jumping and ducking logic can go here
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    // Handle the beginning of the swipe...
+                    break;
+
+                case TouchPhase.Moved:
+                    // Calculate the angle based on touch.deltaPosition...
+                    float angle = Vector2.SignedAngle(Vector2.right, touch.deltaPosition);
+
+                    // Check for swipe angles to trigger jump or duck...
+                    if (angle >= minSwipeAngleJump && angle <= maxSwipeAngleJump)
+                    {
+                        Jump();
+                    }
+                    else if (angle >= minSwipeAngleDuck && angle <= maxSwipeAngleDuck)
+                    {
+                        Duck();
+                    }
+                    break;
+            }
+        }
     }
 
     public void Jump()
@@ -33,7 +58,7 @@ public class JumpAndDuckScript : MonoBehaviour
         if (!isJumping)
         {
             // Calculate the target position for jumping
-            jumpTarget = initialPosition + Vector3.up * jumpHeight;
+            jumpTarget = transform.position + Vector3.up * jumpHeight;
             isJumping = true;
         }
 
@@ -44,15 +69,14 @@ public class JumpAndDuckScript : MonoBehaviour
         }
         else
         {
-            // Once the player has reached or surpassed the jump target, return to the initial position
+            // Once the player has reached or surpassed the jump target, quickly return to the initial position
             transform.position = Vector3.MoveTowards(transform.position, initialPosition, returnSpeed * Time.deltaTime);
-        }
 
-        // Check if the player has returned to the initial position
-        if (Vector3.Distance(transform.position, initialPosition) < 0.01f)
-        {
-            isJumping = false;
-            transform.position = initialPosition; // Ensure the player is exactly at the initial position
+            // If the player has returned to the initial position, reset the jump flag
+            if (transform.position == initialPosition)
+            {
+                isJumping = false;
+            }
         }
     }
 
