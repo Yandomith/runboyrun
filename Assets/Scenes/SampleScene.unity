@@ -2270,6 +2270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  jumpSpeed: 5
+  jumpHeight: 2
   swipeAngleThreshold: 10
   minSwipeAngleRight: 330
   maxSwipeAngleRight: 360
