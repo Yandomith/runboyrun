@@ -2272,8 +2272,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   swipeAngleThreshold: 30
-  minSwipeAngle: 45
-  maxSwipeAngle: 135
+  minSwipeAngleRight: 330
+  maxSwipeAngleRight: 30
+  minSwipeAngleLeft: 150
+  maxSwipeAngleLeft: 210
+  minSwipeAngleJump: 70
+  maxSwipeAngleJump: 110
+  minSwipeAngleDuck: 250
+  maxSwipeAngleDuck: 290
 --- !u!114 &951103696
 MonoBehaviour:
   m_ObjectHideFlags: 0

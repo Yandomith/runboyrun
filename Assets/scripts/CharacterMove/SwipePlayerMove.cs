@@ -60,7 +60,7 @@ public class SwipePlayerActions : MonoBehaviour
                             {
                                 // Left swipe
                                 Move(-1);
-                                hasMoved is true;
+                                hasMoved = true;
                             }
                             else if (angle >= minSwipeAngleJump && angle <= maxSwipeAngleJump)
                             {
