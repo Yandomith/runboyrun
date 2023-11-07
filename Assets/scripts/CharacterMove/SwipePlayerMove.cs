@@ -14,8 +14,14 @@ public class SwipePlayerActions : MonoBehaviour
 
     public float swipeAngleThreshold = 30.0f; // Swipe angle threshold in degrees
 
-    public float minSwipeAngle = 45.0f; // Minimum accepted swipe angle (left) 
-    public float maxSwipeAngle = 135.0f; // Maximum accepted swipe angle (right)
+    public float minSwipeAngleRight = 330.0f; // Minimum accepted swipe angle for right swipe
+    public float maxSwipeAngleRight = 30.0f; // Maximum accepted swipe angle for right swipe
+    public float minSwipeAngleLeft = 150.0f; // Minimum accepted swipe angle for left swipe
+    public float maxSwipeAngleLeft = 210.0f; // Maximum accepted swipe angle for left swipe
+    public float minSwipeAngleJump = 70.0f; // Minimum accepted swipe angle for jumping
+    public float maxSwipeAngleJump = 110.0f; // Maximum accepted swipe angle for jumping
+    public float minSwipeAngleDuck = 250.0f; // Minimum accepted swipe angle for ducking
+    public float maxSwipeAngleDuck = 290.0f; // Maximum accepted swipe angle for ducking
 
     void Update()
     {
@@ -35,25 +41,37 @@ public class SwipePlayerActions : MonoBehaviour
                     {
                         // Calculate the swipe direction based on the magnitude and angle
                         float magnitude = touch.deltaPosition.magnitude;
-                        float angle = Vector2.Angle(Vector2.right, touch.deltaPosition);
+                        float angle = Vector2.SignedAngle(Vector2.right, touch.deltaPosition);
 
-                        if (magnitude >= touch.deltaPosition.x && magnitude >= touch.deltaPosition.y)
+                        if (magnitude >= swipeAngleThreshold)
                         {
-                            // Check the angle to determine if it's within the accepted range
-                            if (angle >= minSwipeAngle && angle <= maxSwipeAngle)
+                            if (angle < 0)
                             {
-                                // Swipe within the desired range
-                                if (touch.deltaPosition.x > 0)
-                                {
-                                    // Swipe right
-                                    Move(1);
-                                }
-                                else
-                                {
-                                    // Swipe left
-                                    Move(-1);
-                                }
+                                angle += 360; // Ensure positive angle
+                            }
 
+                            if (angle >= minSwipeAngleRight && angle <= maxSwipeAngleRight)
+                            {
+                                // Right swipe
+                                Move(1);
+                                hasMoved = true;
+                            }
+                            else if (angle >= minSwipeAngleLeft && angle <= maxSwipeAngleLeft)
+                            {
+                                // Left swipe
+                                Move(-1);
+                                hasMoved is true;
+                            }
+                            else if (angle >= minSwipeAngleJump && angle <= maxSwipeAngleJump)
+                            {
+                                // Jumping swipe
+                                Jump();
+                                hasMoved = true;
+                            }
+                            else if (angle >= minSwipeAngleDuck && angle <= maxSwipeAngleDuck)
+                            {
+                                // Ducking swipe
+                                Duck();
                                 hasMoved = true;
                             }
                         }
