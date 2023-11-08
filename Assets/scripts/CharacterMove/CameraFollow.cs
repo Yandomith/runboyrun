@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollowHead : MonoBehaviour
 {
     public Transform headTransform;    // The head's transform
-    public float positionSmoothing = 2.5f; // Smoothing factor for position
+    public float positionSmoothing = 10f; // Smoothing factor for position
     public float rotationSmoothing = 1f; // Smoothing factor for rotation
 
     private Vector3 initialOffset;
