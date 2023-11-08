@@ -11,7 +11,7 @@ public class JumpAndDuckScript : MonoBehaviour
 
     public bool isJumping= false;
     public bool comingDown = false;
-    public float jumpSpeed = 1f;
+    public float jumpSpeed = 9f;
 
    
 
@@ -55,28 +55,29 @@ public class JumpAndDuckScript : MonoBehaviour
         {
             if(comingDown == false)
             {
-                transform.Translate(Vector3.up* Time.deltaTime*3,Space.World);
+                transform.Translate(Vector3.up* Time.deltaTime*jumpSpeed,Space.World);
 
             }
             if(comingDown == true)
             {
-                transform.Translate(Vector3.up* Time.deltaTime*-3,Space.World);
-                if(this.gameObject.transform.position.y != 2.5f )
-                {
-                    float newY = Mathf.Lerp(transform.position.y, 2.5f, jumpSpeed * Time.deltaTime);
-                    transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-                }
+                transform.Translate(Vector3.up* Time.deltaTime*-1* jumpSpeed,Space.World);
+                
             }
         }
     }
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         comingDown = true;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         isJumping = false;
         comingDown = false;
+        if(this.gameObject.transform.position.y != 2.5f )
+                {
+                    
+                    transform.position = new Vector3(transform.position.x, 2.5f, transform.position.z);
+                }
 
     }
 

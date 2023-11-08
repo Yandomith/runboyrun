@@ -2100,7 +2100,7 @@ MonoBehaviour:
   maxSwipeAngleDuck: 290
   isJumping: 0
   comingDown: 0
-  jumpSpeed: 1
+  jumpSpeed: 9
 --- !u!1 &956538561
 GameObject:
   m_ObjectHideFlags: 0
