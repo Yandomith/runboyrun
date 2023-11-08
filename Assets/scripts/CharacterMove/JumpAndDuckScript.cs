@@ -11,7 +11,7 @@ public class JumpAndDuckScript : MonoBehaviour
 
     public bool isJumping= false;
     public bool comingDown = false;
-    public float jumpSpeed = 3f;
+    public float jumpSpeed = 1f;
 
    
 
@@ -72,9 +72,9 @@ public class JumpAndDuckScript : MonoBehaviour
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.8f);
         comingDown = true;
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.8f);
         isJumping = false;
         comingDown = false;
 
