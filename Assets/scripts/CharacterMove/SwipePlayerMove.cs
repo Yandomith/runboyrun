@@ -3,8 +3,6 @@ using UnityEngine;
 public class SwipePlayerActions : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float duckHeight = 1.0f; // Height to duck
-
     private float currentPosition = 4.0f; // Initial player position
     private float moveDistance = 5.5f; // Fixed movement distance
 
@@ -54,13 +52,6 @@ public class SwipePlayerActions : MonoBehaviour
                                 Move(1);
                             else if (angle >= minSwipeAngleLeft && angle <= maxSwipeAngleLeft)
                                 Move(-1);
-                            else
-                            {
-                                if (angle >= jumpAndDuckScript.minSwipeAngleJump && angle <= jumpAndDuckScript.maxSwipeAngleJump)
-                                    jumpAndDuckScript.Jump();
-                                else if (angle >= jumpAndDuckScript.minSwipeAngleDuck && angle <= jumpAndDuckScript.maxSwipeAngleDuck)
-                                    jumpAndDuckScript.Duck();
-                            }
                         }
                     }
                     break;

@@ -1,27 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpAndDuckScript : MonoBehaviour
 {
-    public float jumpSpeed = 10.0f; // Adjust this value to control the jump speed
-    public float returnSpeed = 15.0f; // Adjust this value to control the return speed
-    public float jumpHeight = 3.0f; // Height to jump
-    public float duckHeight = 1.0f; // Height to duck
-
-    private Vector3 initialPosition; // Store the initial position before jumping
-    private bool isJumping; // Flag to track if the player is jumping
-    private Vector3 jumpTarget; // Target position for jumping
-
     public float minSwipeAngleJump = 70.0f; // Minimum accepted swipe angle for jumping
     public float maxSwipeAngleJump = 110.0f; // Maximum accepted swipe angle for jumping
     public float minSwipeAngleDuck = 250.0f; // Minimum accepted swipe angle for ducking
-    public float maxSwipeAngleDuck = 290.0f; // Maximum accepted swipe angle for ducking
+    public float maxSwipeAngleDuck = 290.0f; 
 
-    void Start()
-    {
-        // Store the initial position at the start of the game
-        initialPosition = transform.position;
-        isJumping = false;
-    }
+    public bool isJumping= false;
+    public bool comingDown = false;
+    public float jumpSpeed = 3f;
+
+   
 
     void Update()
     {
@@ -42,7 +34,12 @@ public class JumpAndDuckScript : MonoBehaviour
                     // Check for swipe angles to trigger jump or duck...
                     if (angle >= minSwipeAngleJump && angle <= maxSwipeAngleJump)
                     {
-                        Jump();
+                        if (isJumping == false)
+                        {
+                            isJumping=true;
+                            StartCoroutine(JumpSequence());
+
+                        }
                     }
                     else if (angle >= minSwipeAngleDuck && angle <= maxSwipeAngleDuck)
                     {
@@ -51,39 +48,41 @@ public class JumpAndDuckScript : MonoBehaviour
                     break;
             }
         }
-    }
 
-    public void Jump()
-    {
-        if (!isJumping)
-        {
-            // Calculate the target position for jumping
-            jumpTarget = transform.position + Vector3.up * jumpHeight;
-            isJumping = true;
-        }
 
-        // If the player is below the jump target, move upward for jumping
-        if (transform.position.y < jumpTarget.y)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y + jumpSpeed * Time.deltaTime, transform.position.z);
-        }
-        else
-        {
-            // Once the player has reached or surpassed the jump target, quickly return to the initial position
-            transform.position = Vector3.MoveTowards(transform.position, initialPosition, returnSpeed * Time.deltaTime);
 
-            // If the player has returned to the initial position, reset the jump flag
-            if (transform.position == initialPosition)
+        if (isJumping== true)
+        {
+            if(comingDown == false)
             {
-                isJumping = false;
+                transform.Translate(Vector3.up* Time.deltaTime*3,Space.World);
+
+            }
+            if(comingDown == true)
+            {
+                transform.Translate(Vector3.up* Time.deltaTime*-3,Space.World);
+                if(this.gameObject.transform.position.y != 2.5f )
+                {
+                    float newY = Mathf.Lerp(transform.position.y, 2.5f, jumpSpeed * Time.deltaTime);
+                    transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+                }
             }
         }
     }
 
-    public void Duck()
+    IEnumerator JumpSequence()
     {
-        // Move the player downwards for ducking
-        Vector3 duckTarget = transform.position + Vector3.down * duckHeight;
-        transform.position = new Vector3(transform.position.x, duckTarget.y, transform.position.z);
+        yield return new WaitForSeconds(0.45f);
+        comingDown = true;
+        yield return new WaitForSeconds(0.45f);
+        isJumping = false;
+        comingDown = false;
+
     }
+
+    void Duck()
+    {
+        // Handle ducking logic here...
+    }
+
 }
