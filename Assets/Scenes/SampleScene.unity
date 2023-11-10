@@ -298,7 +298,7 @@ MonoBehaviour:
   zPos: 20
   creatingSection: 0
   secNum: 0
-  GenerateTime: 2.45
+  GenerateTime: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 951103688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 2.5, z: 0}
+  m_LocalPosition: {x: 4, y: 2.5, z: -60}
   m_LocalScale: {x: 1.5, y: 5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1e14cbf5670ef45b54d749e5626ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   swipeAngleThreshold: 10
   minSwipeAngleRight: 330
   maxSwipeAngleRight: 360
@@ -653,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0.16552211, y: 5.7980287e-12, z: 1.1903584e-12, w: 0.9862061}
-  m_LocalPosition: {x: 4, y: 4.65, z: 0}
+  m_LocalPosition: {x: 4, y: 4.65, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headTransform: {fileID: 1799564909}
-  positionSmoothing: 2.5
+  positionSmoothing: 50
   rotationSmoothing: 1
 --- !u!1001 &1069469364
 PrefabInstance:
