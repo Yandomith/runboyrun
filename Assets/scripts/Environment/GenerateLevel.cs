@@ -9,7 +9,7 @@ public class GenerateLevel : MonoBehaviour
     public int zPos = 20;
     public bool creatingSection= false;
     public int secNum;
-    public float GenerateTime = 2.45f;
+    public float GenerateTime = 2f;
 
 
     void Update()
@@ -26,7 +26,7 @@ public class GenerateLevel : MonoBehaviour
     {
         secNum = Random.Range(0,3);
         Instantiate(Section[secNum],new Vector3(0,0,zPos), Quaternion.identity);
-        
+        zPos +=20;        
         yield return new WaitForSeconds(GenerateTime);
         creatingSection =false;
 

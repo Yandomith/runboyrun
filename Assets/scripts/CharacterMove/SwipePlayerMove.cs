@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SwipePlayerActions : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     private float currentPosition = 4.0f; // Initial player position
     private float moveDistance = 5.5f; // Fixed movement distance
 
@@ -28,6 +28,8 @@ public class SwipePlayerActions : MonoBehaviour
 
     void Update()
     {
+        transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
