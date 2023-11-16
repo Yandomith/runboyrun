@@ -13,6 +13,9 @@ public class JumpAndDuckScript : MonoBehaviour
     public bool comingDown = false;
     public float jumpSpeed = 9f;
 
+    public GameObject playerObject;
+
+
    
 
     void Update()
@@ -37,6 +40,7 @@ public class JumpAndDuckScript : MonoBehaviour
                         if (isJumping == false)
                         {
                             isJumping=true;
+                            playerObject.GetComponent<Animator>().Play("Jump");
                             StartCoroutine(JumpSequence());
 
                         }
@@ -68,9 +72,9 @@ public class JumpAndDuckScript : MonoBehaviour
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         comingDown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         isJumping = false;
         comingDown = false;
         if(this.gameObject.transform.position.y != 2.5f )
@@ -78,6 +82,7 @@ public class JumpAndDuckScript : MonoBehaviour
                     
                     transform.position = new Vector3(transform.position.x, 2.5f, transform.position.z);
                 }
+        playerObject.GetComponent<Animator>().Play("Running");
 
     }
 
