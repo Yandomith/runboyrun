@@ -168,7 +168,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703809959}
-  - component: {fileID: 703809958}
   - component: {fileID: 703809960}
   m_Layer: 0
   m_Name: LevelControl
@@ -177,20 +176,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &703809958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703809957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f0fdb6f36cad84282c5bcebd62c538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalLeft: 0
-  internalRight: 0
 --- !u!4 &703809959
 Transform:
   m_ObjectHideFlags: 0
@@ -213,7 +198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703809957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4e1a20aafd708c45b1b89afba52bcc4, type: 3}
   m_Name: 
@@ -339,7 +324,6 @@ GameObject:
   - component: {fileID: 951103692}
   - component: {fileID: 951103691}
   - component: {fileID: 951103690}
-  - component: {fileID: 951103694}
   - component: {fileID: 951103695}
   - component: {fileID: 951103696}
   - component: {fileID: 951103697}
@@ -437,19 +421,6 @@ Transform:
   - {fileID: 138957875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &951103694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951103688}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95aa5d91404d39146ae70519ec1cc9ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftRightSpeed: 10
 --- !u!114 &951103695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,11 +467,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951103688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba2d1082461d20a4493b58655a261977, type: 3}
+  m_Script: {fileID: 11500000, guid: 0884a2e2a79d7a142aafdc49d6308eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isJumping: 0
+  comingDown: 0
+  playerObject: {fileID: 138957874}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

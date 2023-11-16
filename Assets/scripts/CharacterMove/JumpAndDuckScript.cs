@@ -11,6 +11,7 @@ public class JumpAndDuckScript : MonoBehaviour
 
     public bool isJumping= false;
     public bool comingDown = false;
+    
     public float jumpSpeed = 9f;
 
     public GameObject playerObject;
