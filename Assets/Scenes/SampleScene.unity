@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &88972078 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1712148502986564766, guid: 155d6baf349c05c43a8b579306457c00, type: 3}
-  m_PrefabInstance: {fileID: 2060866176}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &138957874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 155d6baf349c05c43a8b579306457c00, type: 3}
@@ -591,12 +586,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1655222, y: -3.1546006e-13, z: 9.715713e-13, w: 0.9862061}
-  m_LocalPosition: {x: 0, y: 0.16120349, z: 0.05266717}
-  m_LocalScale: {x: 0.35460994, y: 0.35460985, z: 0.3546099}
+  m_LocalRotation: {x: -0.16552213, y: 5.31486e-12, z: 3.0093482e-12, w: 0.9862061}
+  m_LocalPosition: {x: 4, y: 4.6500006, z: 0.35000008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 88972078}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -12.13, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -605,7 +600,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e26b991f4ba2c854a87e9a1875289396, type: 3}
   m_Name: 
@@ -688,10 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1712148502986564766, guid: 155d6baf349c05c43a8b579306457c00, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 963194228}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 155d6baf349c05c43a8b579306457c00, type: 3}
       insertIndex: -1
@@ -766,3 +758,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1025771126456475373}
   - {fileID: 951103693}
+  - {fileID: 963194228}
