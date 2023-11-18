@@ -51,6 +51,9 @@ public class JumpAndDuckScript : MonoBehaviour
                         Duck();
                     }
                     break;
+
+                 
+
             }
         }
 
@@ -83,7 +86,20 @@ public class JumpAndDuckScript : MonoBehaviour
                     
                     transform.position = new Vector3(transform.position.x, 2.5f, transform.position.z);
                 }
-        playerObject.GetComponent<Animator>().Play("Running");
+
+       JumpAndDuckScript jumpAndDuckScript = this.gameObject.GetComponent<JumpAndDuckScript>();
+
+        if (jumpAndDuckScript != null)
+        {
+            if (!jumpAndDuckScript.enabled)
+            {
+                playerObject.GetComponent<Animator>().Play("highitfall");
+            }
+            else
+            {
+                playerObject.GetComponent<Animator>().Play("Running");
+            }
+        }
 
     }
 
