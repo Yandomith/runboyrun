@@ -10,7 +10,5 @@ public class ObstaclesCollision : MonoBehaviour
     {   
         this.gameObject.GetComponent<BoxCollider>().enabled=false;
         thePlayer.GetComponent<SwipePlayerMove>().enabled= false;
-
-
     }
 }
