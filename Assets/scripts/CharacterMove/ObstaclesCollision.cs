@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ObstaclesCollision : MonoBehaviour
 {
-    public GameObject thePlayer;
+    public GameObject Player;
 
     void OnTriggerEnter(Collider other)
     {   
         this.gameObject.GetComponent<BoxCollider>().enabled=false;
-        thePlayer.GetComponent<SwipePlayerMove>().enabled= false;
+        Player.GetComponent<SwipePlayerMove>().enabled= false;
     }
 }
