@@ -10,6 +10,8 @@ public class ObstaclesCollision : MonoBehaviour
     {
 
         Debug.Log("Hit");
+
+        
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
 
   
@@ -20,7 +22,7 @@ public class ObstaclesCollision : MonoBehaviour
         Debug.Log("Animation changed");
 
 
-        Char.GetComponent<Animator>().CrossFadeInFixedTime("highitFall", 0.2f);
+        Char.GetComponent<Animator>().Play("highitFall");
 
 
     }
