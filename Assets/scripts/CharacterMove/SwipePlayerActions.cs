@@ -30,6 +30,7 @@ namespace PlayerMove{
         void Update()
         {
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
+            StartCoroutine(IncreaseRunSpeed());
 
             if (Input.touchCount > 0)
             {
@@ -61,6 +62,18 @@ namespace PlayerMove{
                 }
             }
         }
+
+
+
+
+        IEnumerator DestroyClone()
+        {
+            yield return new WaitForSeconds(60);
+            moveSpeed = moveSpeed+5;
+
+
+        }
+
 
         void Move(float direction)
         {
