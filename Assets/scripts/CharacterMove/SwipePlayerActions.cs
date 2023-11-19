@@ -78,7 +78,7 @@ namespace PlayerMove{
 
         IEnumerator IncreaseRunSpeed()
         {
-            moveSpeed = moveSpeed+5;
+            moveSpeed = moveSpeed+2;
             yield return new WaitForSeconds(60);
             increasedSpeed = false;
             
