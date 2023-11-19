@@ -5,6 +5,7 @@ using UnityEngine;
 namespace PlayerMove{
     public class SwipePlayerActions : MonoBehaviour
     {
+        public bool increasedSpeed = false;
         public float moveSpeed = 10f;
         private float currentPosition = 4.0f; // Initial player position
         private float moveDistance = 5.5f; // Fixed movement distance
@@ -27,12 +28,19 @@ namespace PlayerMove{
         {
             // Initialize the reference to the jumping and ducking script
             jumpAndDuckScript = GetComponent<JumpAndDuckScript>();
+            
         }
 
         void Update()
         {
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
-            StartCoroutine(IncreaseRunSpeed());
+            if(increasedSpeed==false)
+            {
+                increasedSpeed= true;
+                StartCoroutine(IncreaseRunSpeed());
+            }
+           
+            
 
             if (Input.touchCount > 0)
             {
@@ -72,6 +80,7 @@ namespace PlayerMove{
         {
             moveSpeed = moveSpeed+5;
             yield return new WaitForSeconds(60);
+            increasedSpeed = false;
             
 
 
