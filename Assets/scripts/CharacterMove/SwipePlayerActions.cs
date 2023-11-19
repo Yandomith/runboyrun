@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlayerMove{
@@ -66,10 +68,11 @@ namespace PlayerMove{
 
 
 
-        IEnumerator DestroyClone()
+        IEnumerator IncreaseRunSpeed()
         {
-            yield return new WaitForSeconds(60);
             moveSpeed = moveSpeed+5;
+            yield return new WaitForSeconds(60);
+            
 
 
         }
