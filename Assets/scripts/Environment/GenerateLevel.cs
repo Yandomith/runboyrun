@@ -6,7 +6,7 @@ public class GenerateLevel : MonoBehaviour
 {
 
     public GameObject[] Section;
-    public int zPos = 20;
+    public int zPos = 40;
     public bool creatingSection= false;
     public int secNum;
     public float GenerateTime = 2f;
