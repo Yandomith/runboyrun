@@ -76,9 +76,9 @@ public class JumpAndDuckScript : MonoBehaviour
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         comingDown = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         isJumping = false;
         comingDown = false;
         if(this.gameObject.transform.position.y != 2.5f )
