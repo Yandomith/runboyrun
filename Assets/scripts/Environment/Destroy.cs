@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour
 {
     public string parentName;
 
-    void Update()
+    void Start()
     {
         parentName= transform.name;
         StartCoroutine(DestroyClone());
@@ -14,7 +14,7 @@ public class Destroy : MonoBehaviour
 
     IEnumerator DestroyClone()
     {
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(10);
         if (parentName == "Section(Clone)")
         {
             Destroy(gameObject);
