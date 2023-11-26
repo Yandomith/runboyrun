@@ -25,7 +25,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _TERRAIN_BLEND_HEIGHT
   - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -100,9 +99,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EnableHeightBlend: 1
+    - _EnableHeightBlend: 0
     - _EnableInstancedPerPixelNormal: 1
-    - _HeightTransition: 0.48
+    - _HeightTransition: 0.044
     - _Metallic0: 0
     - _Metallic1: 0
     - _Metallic2: 0
