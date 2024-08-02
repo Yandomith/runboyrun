@@ -15,13 +15,15 @@ public class CameraFollowHead : MonoBehaviour
 
     private void Update()
     {
+         // Set the camera's position to match the parent object
+        transform.position = headTransform.position;
+        
         // Smoothly update the camera's rotation based on the head
         Quaternion targetRotation = headTransform.rotation * initialRotation;
 
         // Smoothly update the camera's rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSmoothing * Time.deltaTime);
         
-        // Set the camera's position to match the parent object
-        transform.position = headTransform.position;
+       
     }
 }

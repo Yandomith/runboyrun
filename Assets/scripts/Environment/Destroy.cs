@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SubsystemsImplementation;
 
 public class Destroy : MonoBehaviour
 {
-    public string parentName;
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        parentName= transform.name;
-        StartCoroutine(DestroyClone());
-    }
-
-    IEnumerator DestroyClone()
-    {
-        yield return new WaitForSeconds(30);
-        if (parentName == "Section(Clone)")
+        if (other.gameObject.CompareTag("DestroyWallTrigger"))
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            StartCoroutine(DestroyAfterDelay());
         }
     }
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForEndOfFrame(); // Waits until the end of the frame to avoid timing issues
+        Debug.Log("Actually Destroying: " + gameObject.name);
+        Destroy(gameObject);
+    }
 }
+
+    
