@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3574950234010591492}
   - component: {fileID: 879523402090597629}
   - component: {fileID: 469134988073599037}
+  - component: {fileID: 2707795389279456530}
   m_Layer: 0
   m_Name: WarningBoard_Obstacles
   m_TagString: Obstacles
@@ -106,6 +107,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2707795389279456530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8022663863487084882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edf69b9d03efbb47802d4f4f5985117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4395314317885755873
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-repository "runboyrun@yandomith@cloud"
+repository "Cloud Repositories/runboyrun@18967425035502@cloud"
   path "/"
     br "/main"
     co "/main"

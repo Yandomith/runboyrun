@@ -30,7 +30,7 @@ public class FastSky_Sun_Color : MonoBehaviour
         topDot = Mathf.Pow(math.smoothstep(0f, 0.9f, topDot), 5);
         bottomDot = Mathf.Pow(bottomDot, 5);
 
-        _light.intensity = Mathf.Lerp(0.1f, sunIntensity, Mathf.Pow(clampedDot, 5));
+        _light.intensity = Mathf.Lerp(.1f, sunIntensity, Mathf.Pow(clampedDot, 5));
         _light.color = Color.Lerp(dayColour, eveningColour, topDot + bottomDot);
 
         //if(transform.localEulerAngles.x == -90)
@@ -40,7 +40,7 @@ public class FastSky_Sun_Color : MonoBehaviour
 
         //RenderSettings.sun = GetComponent<Light>();
         //RenderSettings.ambientMode = AmbientMode.Custom;
-        RenderSettings.ambientIntensity = Mathf.Lerp(.8f, 1f, Mathf.Pow(clampedDot, 5));
+        RenderSettings.ambientIntensity = Mathf.Lerp(.6f, 1f, Mathf.Pow(clampedDot, 5));
         //reflectionCamera.RenderToCubemap(cubeMap);
         //cubeMap.Apply();
         //RenderSettings.customReflection = cubeMap;
