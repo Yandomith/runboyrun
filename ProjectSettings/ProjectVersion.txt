@@ -1,2 +1,3 @@
-m_EditorVersion: 2022.3.28f1
-m_EditorVersionWithRevision: 2022.3.28f1 (6bae5ce6b222)
+version https://git-lfs.github.com/spec/v1
+oid sha256:8468d7add4c1613c42224053cb9c889688ccf141875f44065a40e6d133bc3ea7
+size 83
