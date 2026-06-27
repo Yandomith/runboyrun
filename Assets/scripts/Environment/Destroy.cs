@@ -8,18 +8,17 @@ public class Destroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("DestroyWallTrigger"))
-        {
-            // Destroy(gameObject);
-            StartCoroutine(DestroyAfterDelay());
-        }
+        Debug.Log("Trigger entered by: " + other.gameObject.name);
+
+        // Destroy(gameObject);
+        StartCoroutine(DestroyAfterDelay());
+
     }
-    private IEnumerator DestroyAfterDelay()
+    IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForEndOfFrame(); // Waits until the end of the frame to avoid timing issues
-        Debug.Log("Actually Destroying: " + gameObject.name);
+        yield return new WaitForSeconds(60f); // Wait for 60 seconds
         Destroy(gameObject);
     }
+
 }
 
-    

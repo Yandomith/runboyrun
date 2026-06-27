@@ -35,7 +35,7 @@ namespace PlayerMove
 
         private void InitializeHighScoreManager()
         {
-            highScoreManager = FindObjectOfType<HighScoreManager>();
+            // highScoreManager = FindObjectOfType<HighScoreManager>();
             if (highScoreManager == null)
             {
                 GameObject highScoreManagerObj = new GameObject("HighScoreManager");

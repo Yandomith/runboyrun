@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        playerControlls.Land.Jump.performed += _ => StartJump();
+        // playerControlls.Land.Jump.performed += _ => StartJump();
         playerControlls.Land.Move.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
     }
 

@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class HighScoreManager : MonoBehaviour
+
 {
+    
     private const string HighScoreKey = "HighScore";
     
 
